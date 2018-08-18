@@ -1,0 +1,14 @@
+@import '../../colors.scss';
+
+
+.btn-signup {
+   background-color: $DARK_PRIMARY_COLOR;
+   border: 1px solid $DARK_PRIMARY_COLOR;
+   color:$TEXT_COLOR !important;
+   padding: 0.375rem 2.75rem; 
+    &:hover {
+        background-color:$LIGHT_PRIMARY_COLOR;
+        color:$PRIMARY_TEXT !important;     
+    }
+
+}

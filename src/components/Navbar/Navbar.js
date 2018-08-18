@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './navbar.scss';
 
 class Navbar extends Component {
 
@@ -24,7 +24,7 @@ class Navbar extends Component {
                             <a className="nav-link">Login</a>
                         </li>
                         <li className="nav-item"> 
-                            <a className="btn btn-success">Sign Up</a>
+                            <a className="btn btn-signup">Sign Up</a>
                         </li>
                     </ul>
 
