@@ -8,31 +8,31 @@ class Navbar extends Component {
 
    
     checkAuthenticatedUser = () => {
-       if(true){
+       if(isAuthenticated()){
            return(
-               <div>
+             <ul className="navbar-nav ml-auto"> 
                     <li className="nav-item">
-                        <Link className="nav-link">Logut</Link>
+                        <Link className="nav-link" to="/logout" >Logut</Link>
                     </li>
                      <li className="nav-item">
-                        <Link className="nav-link">
+                        <Link className="nav-link" to="/me">
                             Hola {payload().username} !!!
                         </Link>
                      </li>
            
-               </div>
+               </ul>
            ) 
        }else{
             return(
-                <div>
+                <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <Link className="nav-link">Login</Link>
+                        <Link className="nav-link" to="/login">Login</Link>
                     </li>
                      <li className="nav-item">
-                        <Link className="btn btn-signup">Signup</Link>
+                        <Link className="btn btn-signup" to="/signup">Signup</Link>
                      </li>
            
-               </div>
+               </ul>
             )
         
        }
@@ -50,17 +50,9 @@ class Navbar extends Component {
                 </button>
 
                 <div className="collapse navbar-collapse" id="collapseAirbnb">
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <a className="nav-link">Propiedades</a>
-                        </li>
-                        <li className="nav-item"> 
-                            <a className="nav-link">Login</a>
-                        </li>
-                        <li className="nav-item"> 
-                            <a className="btn btn-signup">Sign Up</a>
-                        </li>
-                    </ul>
+                   
+                       {this.checkAuthenticatedUser()}
+            
 
                 </div>
 
