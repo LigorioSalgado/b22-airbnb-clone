@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './signup.scss';
 import GenericInput from '../GenericInput/GenericInput';
+import services from '../../services';
 
 class Signup extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             correo:"",
             nombre:"",
@@ -19,52 +20,73 @@ class Signup extends Component{
         }
     }
 
-    checkInput(event){
+    checkInput = (event)=>{
         let {name,value} =  event.target 
         this.setState({
             [name]:value
         })
 
     }
+
+    submitForm = (event) =>{
+        event.preventDefault();
+        if(this.checkPassword()){
+            services.createUser(this.state).then((resp)=>{
+                console.log(resp.data)
+                this.props.history.push('/');
+            }).catch((err) => {
+                console.log(err.response.data)
+            })
+
+        }else{
+            alert("Los passwords no coinciden");
+        }
+
+    }
+
+    checkPassword = () => {
+        return this.state.password === this.state.check_password;
+    }
     
     render(){
+
         return(
             <div className="row justify-content-center">
                 <div className="col-md-10 col-lg-8">
-                    <form role="form">
+                    <form role="form" onSubmit={this.submitForm}>
                         <GenericInput type={"email"} 
                             value={this.state.correo}
                             name={"correo"}
-                            onChange={this.checkInput} 
+                            change={this.checkInput} 
                         />
                         <GenericInput type={"text"} 
                             value={this.state.nombre}
                             name={"nombre"}
-                            onChange={this.checkInput} 
+                            change={this.checkInput} 
                         />
 
                         <GenericInput type={"text"} 
                             value={this.state.apellidos}
                             name={"apellidos"}
-                            onChange={this.checkInput} 
+                            change={this.checkInput} 
                         />
 
                         <GenericInput type={"text"} 
                             value={this.state.username}
                             name={"username"}
-                            onChange={this.checkInput} 
+                            change={this.checkInput} 
                         />
 
                         <GenericInput type={"password"} 
                             value={this.state.password}
                             name={"password"}
-                            onChange={this.checkInput} 
+                            change={this.checkInput} 
                         />
 
                         <GenericInput type={"password"} 
                             value={this.state.check_password}
                             name={"check_password"}
-                            onChange={this.checkInput} 
+                            change={this.checkInput} 
                         />
                         
                         <div className="form-group">
@@ -90,7 +112,7 @@ class Signup extends Component{
                                 <option value="BZ">Belice</option>
                             </select>
                         </div>
-
+                        <button type="submit" className="btn btn-signup mb-3" >Enviar</button>
                     </form>
                 </div>    
             </div>
