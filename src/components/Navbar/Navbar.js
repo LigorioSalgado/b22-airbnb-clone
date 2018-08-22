@@ -1,9 +1,43 @@
 import React, { Component } from 'react';
 import './navbar.scss';
+import isAuthenticated from '../../resolvers/isAuthenticated';
+import payload from '../../resolvers/payload';
+import {Link} from 'react-router-dom';
 
 class Navbar extends Component {
 
    
+    checkAuthenticatedUser = () => {
+       if(true){
+           return(
+               <div>
+                    <li className="nav-item">
+                        <Link className="nav-link">Logut</Link>
+                    </li>
+                     <li className="nav-item">
+                        <Link className="nav-link">
+                            Hola {payload().username} !!!
+                        </Link>
+                     </li>
+           
+               </div>
+           ) 
+       }else{
+            return(
+                <div>
+                    <li className="nav-item">
+                        <Link className="nav-link">Login</Link>
+                    </li>
+                     <li className="nav-item">
+                        <Link className="btn btn-signup">Signup</Link>
+                     </li>
+           
+               </div>
+            )
+        
+       }
+    }
+
 
     render(){
         return(
