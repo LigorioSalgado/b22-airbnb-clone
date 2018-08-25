@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Jumbotron from '../Jumbotron/Jumbotron';
+import PropiedadesList from '../PropiedadesList/PropiedadesList'
 
 
 class Home extends Component{
@@ -9,6 +10,7 @@ class Home extends Component{
         return(
             <div className="container-fluid" >
                 <Jumbotron/>
+                <PropiedadesList/>
             </div>
 
         )
