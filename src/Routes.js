@@ -9,6 +9,7 @@ import Signup from './components/Signup/Signup';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import DetailPropiedad from './components/DetailPropiedad/DetailPropiedad';
 import {ApolloProvider} from 'react-apollo';
 import client from './graphql';
 
@@ -25,6 +26,8 @@ class Routes extends Component {
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/logout' component={Logout}/>
+                <Route exact path='/propiedad/:id' component={DetailPropiedad}/>
+
 
             </main>
             </ApolloProvider>

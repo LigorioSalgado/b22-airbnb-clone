@@ -22,8 +22,12 @@ const GET_HOUSES = gql`
 
 class PropiedadesList extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+    }
+
+    redirectDetail = (id) => {
+       this.props.history.push(`/propiedad/${id}`);
     }
 
     renderHouses = () => (
@@ -37,7 +41,9 @@ class PropiedadesList extends Component{
                             <div className="row justify-content-center mt-5">
                                {data.allPropiedades.map((propiedad) => (
                                      <div className="col-md-6 col-lg-3">
-                                            <PropiedadCard propiedad={propiedad}/>
+                                            <PropiedadCard propiedad={propiedad}
+                                                redirect={this.redirectDetail}
+                                            />
                                     </div> 
                                ))} 
 

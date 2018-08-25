@@ -1,12 +1,14 @@
 import React, { Component } from 'react'; 
 import './propiedadCard.scss';
 import Rating from 'react-rating';
+import {Redirect} from 'react-router-dom';
 
 class PropiedadCard extends Component{
 
     constructor(props){
         super(props);
         this.state = {
+            id:props.propiedad._id,
             nombre:props.propiedad.nombre,
             foto:props.propiedad.fotos[0],
             precio:props.propiedad.precio,
@@ -24,10 +26,11 @@ class PropiedadCard extends Component{
         return suma/this.state.calificacion.length
     }
 
+    
 
     render(){
         return(
-            <div className="card card-propiedad" >
+            <div className="card card-propiedad" onClick={(e) => this.props.redirect(this.state.id)} >
                 <img className="card-img-top" src={this.state.foto} alt="Card image cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{this.state.nombre}</h5>
