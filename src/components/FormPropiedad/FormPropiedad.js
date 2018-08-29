@@ -9,6 +9,10 @@ import Calendar from 'react-calendar';
 
 
 const CREATE_HOUSE = gql`
+<<<<<<< HEAD
+=======
+
+>>>>>>> f973f9e238cf9e783b306139c80ce99ecb79ee07
     mutation AddPropiedad($data:Propiedades!){
         addPropiedad(data:$data){
             _id,
@@ -18,12 +22,20 @@ const CREATE_HOUSE = gql`
 `
 
 const GET_SERVICES =  gql`
+<<<<<<< HEAD
+=======
+
+>>>>>>> f973f9e238cf9e783b306139c80ce99ecb79ee07
     query{
         allServicios{
             _id,
             nombre
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f973f9e238cf9e783b306139c80ce99ecb79ee07
 `
 
 class FormPropiedad extends Component{
@@ -92,6 +104,7 @@ class FormPropiedad extends Component{
         this.setState({servicios: array});
 
        }
+
     }
 
     onFormSubmit = (event,addPropiedad) => {
@@ -237,6 +250,7 @@ class FormPropiedad extends Component{
 
 
 }
+
 
 
 export default FormPropiedad;
